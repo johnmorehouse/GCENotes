@@ -53,7 +53,6 @@ johnm@rstudio:~$ apt-get install gcsfuse
 
 As with everything here, this can be done directly in the Google Cloud Console or the terminal. We will use the command [`gsutil mb`](https://cloud.google.com/storage/docs/creating-buckets). See the documentation for more options. __Note__ bucket names are unique across cloud-storage, so you will have to create a bucket with a different name.[^2] I will call mine `johnm-testbucket`
 
-We will create a bucket called `test_bucket`:  
 
 ```
 johnm@rstudio:~$ gsutil mb -c STANDARD -l  US-WEST1 gs://johnm-testbucket
@@ -67,7 +66,7 @@ Now you should be able to go to the cloud console and confirm that the bucket is
 
 ## 3. __Mount the bucket.__ 
 
-Next, we need to "mount" this bucket to our VM instance. This is straightforward enough. The goal here is to be able to access all of the contents of "test_bucket" (currently empty) in Rstudio. First, create a folder for the contents of the bucket:
+Next, we need to "mount" this bucket to our VM instance. This is straightforward enough. The goal here is to be able to access all of the contents of "johnm-testbucket" (currently empty) in Rstudio. First, create a folder for the contents of the bucket:
 
 ```
 johnm@rstudio:~$ mkdir tmp-folder
@@ -78,10 +77,10 @@ You should see this pop up in the Rstudio console you just opened up.
 
 <img src="figures/test-folder.png" width="100%" height="150%" />
 
-Finally, we can mount the bucket (named `testbucket`) using: 
+Finally, we can mount the bucket (named `johnmm-testbucket`) using: 
 
 ```
-johnm@rstudio:~$gcsfuse johnm- test-folder
+johnm@rstudio:~$gcsfuse johnm-testbucket tmp-folder
 ```
 
 
