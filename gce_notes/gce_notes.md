@@ -17,7 +17,7 @@ output:
 
 
 
-*Most of these notes expand on what I learned from [Grant McDermott](http://grantmcdermott.com/) in his very helpful [course](https://github.com/uo-ec607-2019winter/lectures).*
+*Most of these notes expand on what I learned from [Grant McDermott](http://grantmcdermott.com/) in his very helpful [course](https://github.com/uo-ec607-2019winter/lectures). I am also grateful to [Ed Rubin](http://edrub.in/) for the constant help with all of my R-related troubles. *
 
 ## Overview
 
