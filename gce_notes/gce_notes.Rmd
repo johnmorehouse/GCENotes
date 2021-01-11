@@ -22,7 +22,7 @@ p_load(
 )
 ```
 
-*Most of these notes expand on what I learned from [Grant Mcdermott](http://grantmcdermott.com/) in his very helpful [course](https://github.com/uo-ec607-2019winter/lectures).*
+*Most of these notes expand on what I learned from [Grant McDermott](http://grantmcdermott.com/) in his very helpful [course](https://github.com/uo-ec607-2019winter/lectures).*
 
 ## Overview
 
