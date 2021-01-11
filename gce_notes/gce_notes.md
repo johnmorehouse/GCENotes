@@ -69,7 +69,7 @@ Now you should be able to go to the cloud console and confirm that the bucket is
 Next, we need to "mount" this bucket to our VM instance. This is straightforward enough. The goal here is to be able to access all of the contents of "johnm-testbucket" (currently empty) in Rstudio. First, create a folder for the contents of the bucket:
 
 ```
-johnm@rstudio:~$ mkdir tmp-folder
+johnm@rstudio:~$ mkdir tmp_folder
 ```
 
 You should see this pop up in the Rstudio console you just opened up.
@@ -80,7 +80,7 @@ You should see this pop up in the Rstudio console you just opened up.
 Finally, we can mount the bucket (named `johnmm-testbucket`) using: 
 
 ```
-johnm@rstudio:~$gcsfuse johnm-testbucket tmp-folder
+johnm@rstudio:~$gcsfuse johnm-testbucket tmp_folder
 ```
 
 

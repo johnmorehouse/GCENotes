@@ -76,7 +76,7 @@ knitr::include_graphics("figures/test-bucket.png")
 Next, we need to "mount" this bucket to our VM instance. This is straightforward enough. The goal here is to be able to access all of the contents of "johnm-testbucket" (currently empty) in Rstudio. First, create a folder for the contents of the bucket:
 
 ```
-johnm@rstudio:~$ mkdir tmp-folder
+johnm@rstudio:~$ mkdir tmp_folder
 ```
 
 You should see this pop up in the Rstudio console you just opened up.
@@ -89,7 +89,7 @@ knitr::include_graphics("figures/test-folder.png")
 Finally, we can mount the bucket (named `johnmm-testbucket`) using: 
 
 ```
-johnm@rstudio:~$gcsfuse johnm-testbucket tmp-folder
+johnm@rstudio:~$gcsfuse johnm-testbucket tmp_folder
 ```
 
 
