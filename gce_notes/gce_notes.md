@@ -103,7 +103,7 @@ __Note:__ This needs to be done in a separate terminal (not with `johnm@rstudio`
 <img src="figures/test-data.png" width="100%" height="150%" />
 
 
-Great! Now you can stop your VM and when you fire it back up, `test-folder` should still be there. One other thing: initially I tried loading an entire directory to a bucket and ran into some issues. This is a bad [idea](https://stackoverflow.com/questions/38311036/folders-not-showing-up-in-bucket-storage). However, as the top answer suggests, you can workaround this by using the `--implicit-dirs` flag, at latency cost. 
+Great! Now you can stop your VM and when you fire it back up, `tmp_folder` should still be there. One other thing: initially I tried loading an entire directory to a bucket and ran into some issues. This is a bad [idea](https://stackoverflow.com/questions/38311036/folders-not-showing-up-in-bucket-storage). However, as the top answer suggests, you can workaround this by using the `--implicit-dirs` flag, at latency cost. 
 
 
 
