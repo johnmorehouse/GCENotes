@@ -99,7 +99,7 @@ Now that we have mounted our bucket to our VM instance, we might want to move so
 Johns-MacBook-Pro:~ johnm$ gsutil cp -r /Users/johnm/Desktop/important_data/*.csv gs://johnm-testbucket
 ```
 
-__Note:__ This needs to be done in a separate terminal (not with `root@rstudio`). Let's confirm that our csv files have made it in:
+__Note:__ This needs to be done in a separate terminal (not with `johnm@rstudio`). Let's confirm that our csv files have made it in:
 
 <img src="figures/test-data.png" width="100%" height="150%" />
 
