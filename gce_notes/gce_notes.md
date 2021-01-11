@@ -117,8 +117,6 @@ Again, there are probably much better and more efficient ways to do what I have 
 
  [^1]: If anybody knows the origins of this verbiage, I would be very curious to hear.
  
- [^2]: You may run into permission issues here. If so use:
+ [^2]: You may run into permission issues here. If so use `johnm@rstudio:~$ gcloud auth login`
  
- ```
-johnm@rstudio:~$ gcloud auth login
-```
+ 
