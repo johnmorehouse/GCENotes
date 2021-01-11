@@ -1528,7 +1528,7 @@ div.tocify {
 </div>
 <div id="install-gcs-fuse" class="section level2">
 <h2>1. <strong>Install GCS fuse</strong></h2>
-<p>Following <a href="apt-get%20install%20gcsfuse">this guide</a>. The following is for VMs set up with the latest releases of Ubuntu and Debian. In this case, my username that I created for Rstudio is <code>johnm</code> and the VM name is <code>rstudio</code>.</p>
+<p>By following <a href="apt-get%20install%20gcsfuse">this guide</a>. The following code is for VMs set up with the latest releases of Ubuntu and Debian. In this case, my username that I created for Rstudio is <code>johnm</code> and the VM name is <code>rstudio</code>.</p>
 <pre><code>johnm@rstudio:~$ export GCSFUSE_REPO=gcsfuse-`lsb_release -c -s`
 johnm@rstudio:~$ echo &quot;deb http://packages.cloud.google.com/apt $GCSFUSE_REPO main&quot; | sudo tee /etc/apt/sources.list.d/gcsfuse.list
 johnm@rstudio:~$ curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -

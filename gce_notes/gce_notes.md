@@ -38,7 +38,7 @@ Now, fire up your Rstudio console within the VM you just created, using <externa
 
 ## 1. __Install GCS fuse__  
 
-Following [this guide](apt-get install gcsfuse). The following is for VMs set up with the latest releases of Ubuntu and Debian. In this case, my username that I created for Rstudio is `johnm` and the VM name is `rstudio`. 
+By following [this guide](apt-get install gcsfuse). The following code is for VMs set up with the latest releases of Ubuntu and Debian. In this case, my username that I created for Rstudio is `johnm` and the VM name is `rstudio`. 
 
 
 ```
