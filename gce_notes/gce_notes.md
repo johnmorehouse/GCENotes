@@ -1,7 +1,7 @@
 ---
-title: "A short guide to integrating Google Cloud Storage with an Rstudio instance on GCE"
+title: "A short guide to integrating Google Cloud Storage with Rstudio on a GCE Instance"
 author: "John Morehouse"
-date: "11 January 2021"
+date: "17 January 2021"
 output:
   html_document:
     highlight: haddock
@@ -17,7 +17,7 @@ output:
 
 
 
-*Most of these notes expand on what I learned from [Grant McDermott](http://grantmcdermott.com/) in his very helpful [course](https://github.com/uo-ec607-2019winter/lectures). I am also grateful to [Ed Rubin](http://edrub.in/) for the constant help with all of my R-related troubles. *
+*Most of these notes expand on what I learned from [Grant Mcdermott](http://grantmcdermott.com/) in his very helpful [course](https://github.com/uo-ec607-2019winter/lectures).*
 
 ## Overview
 
@@ -38,7 +38,7 @@ Now, fire up your Rstudio console within the VM you just created, using <externa
 
 ## 1. __Install GCS fuse__  
 
-By following [this guide](apt-get install gcsfuse). The following code is for VMs set up with the latest releases of Ubuntu and Debian. In this case, my username that I created for Rstudio is `johnm` and the VM name is `rstudio`. 
+Following [this guide](apt-get install gcsfuse). The following is for VMs set up with the latest releases of Ubuntu and Debian. In this case, my username that I created for Rstudio is `johnm` and the VM name is `rstudio`. 
 
 
 ```
@@ -53,6 +53,7 @@ johnm@rstudio:~$ apt-get install gcsfuse
 
 As with everything here, this can be done directly in the Google Cloud Console or the terminal. We will use the command [`gsutil mb`](https://cloud.google.com/storage/docs/creating-buckets). See the documentation for more options. __Note__ bucket names are unique across cloud-storage, so you will have to create a bucket with a different name.[^2] I will call mine `johnm-testbucket`
 
+We will create a bucket called `test_bucket`:  
 
 ```
 johnm@rstudio:~$ gsutil mb -c STANDARD -l  US-WEST1 gs://johnm-testbucket
@@ -66,10 +67,10 @@ Now you should be able to go to the cloud console and confirm that the bucket is
 
 ## 3. __Mount the bucket.__ 
 
-Next, we need to "mount" this bucket to our VM instance. This is straightforward enough. The goal here is to be able to access all of the contents of "johnm-testbucket" (currently empty) in Rstudio. First, create a folder for the contents of the bucket:
+Next, we need to "mount" this bucket to our VM instance. This is straightforward enough. The goal here is to be able to access all of the contents of "test_bucket" (currently empty) in Rstudio. First, create a folder for the contents of the bucket:
 
 ```
-johnm@rstudio:~$ mkdir tmp_folder
+johnm@rstudio:~$ mkdir tmp-folder
 ```
 
 You should see this pop up in the Rstudio console you just opened up.
@@ -77,10 +78,10 @@ You should see this pop up in the Rstudio console you just opened up.
 
 <img src="figures/test-folder.png" width="100%" height="150%" />
 
-Finally, we can mount the bucket (named `johnmm-testbucket`) using: 
+Finally, we can mount the bucket (named `testbucket`) using: 
 
 ```
-johnm@rstudio:~$gcsfuse johnm-testbucket tmp_folder
+johnm@rstudio:~$gcsfuse johnm- test-folder
 ```
 
 
@@ -98,12 +99,12 @@ Now that we have mounted our bucket to our VM instance, we might want to move so
 Johns-MacBook-Pro:~ johnm$ gsutil cp -r /Users/johnm/Desktop/important_data/*.csv gs://johnm-testbucket
 ```
 
-__Note:__ This needs to be done in a separate terminal (not with `johnm@rstudio`). Let's confirm that our csv files have made it in:
+__Note:__ This needs to be done in a separate terminal (not with `root@rstudio`). Let's confirm that our csv files have made it in:
 
 <img src="figures/test-data.png" width="100%" height="150%" />
 
 
-Great! Now you can stop your VM and when you fire it back up, `tmp_folder` should still be there. One other thing: initially I tried loading an entire directory to a bucket and ran into some issues. This is a bad [idea](https://stackoverflow.com/questions/38311036/folders-not-showing-up-in-bucket-storage). However, as the top answer suggests, you can workaround this by using the `--implicit-dirs` flag, at latency cost. 
+Great! Now you can stop your VM and when you fire it back up, `test-folder` should still be there. One other thing: initially I tried loading an entire directory to a bucket and ran into some issues. This is a bad [idea](https://stackoverflow.com/questions/38311036/folders-not-showing-up-in-bucket-storage). However, as the top answer suggests, you can workaround this by using the `--implicit-dirs` flag, at latency cost. 
 
 
 
@@ -117,6 +118,8 @@ Again, there are probably much better and more efficient ways to do what I have 
 
  [^1]: If anybody knows the origins of this verbiage, I would be very curious to hear.
  
- [^2]: You may run into permission issues here. If so use `johnm@rstudio:~$ gcloud auth login`
+ [^2]: You may run into permission issues here. If so use:
  
- 
+ ```
+johnm@rstudio:~$ gcloud auth login
+```
