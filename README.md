@@ -4,4 +4,6 @@ This folder contains a short guide on how to integrate Google Cloud Storage with
 
 The notes are in html format and can be found [here](https://rawcdn.githack.com/johnmorehouse/gcs-rstudio-guide/16f2a3ea03349fa2e62ef61f7353c78e9408c271/gce_notes/gce_notes.html).
 
+I also have included a shell script ([here](https://github.com/johnmorehouse/gcs-rstudio-guide/blob/main/setup_jupyter.sh)) that deploys Jupyter with a [Julia](https://julialang.org/) kernel installed on a GCE VM (and the storage works very similarly).
+
 Suggestions are always welcome.
