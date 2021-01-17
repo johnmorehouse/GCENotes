@@ -28,20 +28,19 @@ wget http://repo.continuum.io/archive/Anaconda3-4.0.0-Linux-x86_64.sh
 bash Anaconda3-4.0.0-Linux-x86_64.sh
 source ~/.bashrc
 
-#create config file
+#create config file and open for editing
 jupyter notebook --generate-config
 nano .jupyter/jupyter_notebook_config.py
 
-##ADD THIS TO CONFIG file
+#Add this to config file
 c = get_config()
 c.NotebookApp.ip = '*'
 c.NotebookApp.open_browser = False
 c.NotebookApp.port = 8888
+#save and close config file
 
 
-#I think this points Julia to anaconda. Or vice versa
 export PATH=~/anaconda3/bin:$PATH
-
 #setup and run IJulia
 
 cat <<IJULIA > ijulia.jl
@@ -51,9 +50,7 @@ Pkg.add("IJulia")
 Pkg.build("IJulia")
 IJULIA
 
-
-ENV["JUPYTER"] = "anaconda3/bin/jupyter"
-
+julia ijulia.jl
 
 #storage stuff ----------------------------------------------------------------
 #setup gcfuse ---------------------------------------
