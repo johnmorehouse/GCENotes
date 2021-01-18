@@ -1,4 +1,7 @@
-
+#This script:
+  #sets up a f1-micro GCE instance (rstudio), installs r and rstudio
+  #creates a cloud storage bucket and mounts to instance
+ #-----------------------------------------------------------------
 
 #set up instance
 sudo gcloud compute instances create rstudio --image-family ubuntu-1804-lts --image-project ubuntu-os-cloud  --machine-type f1-micro --zone us-west1-a
@@ -35,10 +38,9 @@ adduser johnm
 
 #log in with external_ip:8787
 
-#remove bucket from project
 
 
-#setup gcfuse ---------------------------------------
+#setup gcfuse -----------------------------------------
 
 cd /home/johnm
 export GCSFUSE_REPO=gcsfuse-`lsb_release -c -s`
@@ -48,7 +50,7 @@ sudo apt-get update
 sudo apt-get install gcsfuse
 
 
-#mount bucket to project-----------------------------
+#mount bucket to project--------------------------------
 mkdir /home/johnm/test_folder
 gcsfuse johnm-testbucket  test_folder
 fusermount -u /bucket
