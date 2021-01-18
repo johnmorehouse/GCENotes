@@ -1,3 +1,8 @@
+#This script:
+  #sets up a n1-standard-8 GCE instance (atom), installs anaconda and Julia
+  #installs IJulia which allows you to use Julia in Jupyter
+  #contains steps to mount a cloud storage bucket to the instance as well
+ #-----------------------------------------------------------------
 
 
 #set up instance
@@ -52,9 +57,11 @@ IJULIA
 
 julia ijulia.jl
 
-#storage stuff ----------------------------------------------------------------
-#setup gcfuse ---------------------------------------
+#launch notbook
+jupyter-notebook --no-browser --port=8888
 
+
+#setup gcfuse -----------------------------------------------------------------
 
 export GCSFUSE_REPO=gcsfuse-`lsb_release -c -s`
 echo "deb http://packages.cloud.google.com/apt $GCSFUSE_REPO main" | sudo tee /etc/apt/sources.list.d/gcsfuse.list
@@ -63,13 +70,10 @@ sudo apt-get update
 sudo apt-get install gcsfuse
 
 
-#mount bucket to project-----------------------------
+#mount bucket to project--------------------------------------------------------
 mkdir /home/johnm/test_folder
 gcsfuse johnm-testbucket  test_folder
 fusermount -u /bucket
 
 gcfuse -o allow_other
 
-
-#Launch notebook----------------------------------------------------------------
-jupyter-notebook --no-browser --port=8888
