@@ -10,6 +10,6 @@ I have a short guide on how to integrate Google Cloud Storage with Rstudio deplo
 
 - __Jupyter + Julia on GCE Instance__:  Deploy Jupyter with a [Julia](https://julialang.org/) kernel installed on a GCE VM -- [Script](https://github.com/johnmorehouse/gcs-rstudio-guide/blob/main/setup_jupyter.sh)
 
-- __Automatically shut-down your instance when done:__ Check a Cloud Storage bucket every X minutes (or hours/days) for output from your program (using [cron](https://ole.michelsen.dk/blog/schedule-jobs-with-crontab-on-mac-osx/), or something similar. When it finds the desired output (_e.g_ your script is done running), shut the instance down. [Script](https://rawcdn.githack.com/johnmorehouse/gcs-rstudio-guide/de919432ccc075010ac08b2285bdb01b7230f913/check_output.sh).
+- __Automatically shut-down your instance when done:__ Check a Cloud Storage bucket every X minutes (or hours/days) for output from your program (using [cron](https://ole.michelsen.dk/blog/schedule-jobs-with-crontab-on-mac-osx/), or something similar. When it finds the desired output (_e.g_ your script is done running), shut the instance down. [Script](https://github.com/johnmorehouse/GCENotes/blob/main/check_output.sh).
 
 Suggestions are always welcome.
