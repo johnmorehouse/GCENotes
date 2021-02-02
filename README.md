@@ -1,6 +1,6 @@
 # Some tips for GCE 
 
-I am compiling a small list of tricks for [Google Compute Engine](https://www.google.com/search?q=google+compute+engine&oq=google+com&aqs=chrome.0.69i59l2j69i60l3j69i65l3.1687j0j9&sourceid=chrome&ie=UTF-8) and the software I use frequently: R and Julia. There is a lot of information out there on these things, but I wanted to put together something that was incredibly beginner-friendly (as I am one!). 
+I am compiling a small list of tricks for [Google Compute Engine](https://www.google.com/search?q=google+compute+engine&oq=google+com&aqs=chrome.0.69i59l2j69i60l3j69i65l3.1687j0j9&sourceid=chrome&ie=UTF-8) and the programming languages I use frequently: R and Julia. I wanted to put together something that was incredibly beginner-friendly --- both for others and myself.
 
 I have a short guide on how to integrate Google Cloud Storage with Rstudio deployed on a GCE instance. These notes are a direct extension of what I learned in [Grant McDermott's](http://grantmcdermott.com/) class, and I strongly suggest you head over to [his notes](https://raw.githack.com/uo-ec607/lectures/master/14-gce/14-gce.html#requirements) for a more in-depth look at the basics of cloud computing. I also have included a shell script that sets up Jupyter with a Julia kernel installed. Lastly, I have included a handy script that checks to see if the desired output from one of your program exists in a storage bucket. If it exists, it shuts the instance down. I am very new to these things, so suggestions are always welcome. 
 
