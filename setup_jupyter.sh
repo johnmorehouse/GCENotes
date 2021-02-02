@@ -57,12 +57,29 @@ IJULIA
 
 julia ijulia.jl
 
+
+#install R (for fstfileformat)------------------------------------------------
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran40/'
+apt update
+apt install r-base
+source ~/.bashrc
+
+
+cat <<IR > setup_r.jl
+ENV["R_HOME"] = "/usr/lib/R"
+using Pkg; Pkg.add("RCall")
+Pkg.build("RCall")
+IR
+
+julia setup_r.jl
+
 #launch notbook
 jupyter-notebook --no-browser --port=8888
 
 
 #setup gcfuse -----------------------------------------------------------------
-
+  #change name from test-bucket to whatever your bucket name is
 export GCSFUSE_REPO=gcsfuse-`lsb_release -c -s`
 echo "deb http://packages.cloud.google.com/apt $GCSFUSE_REPO main" | sudo tee /etc/apt/sources.list.d/gcsfuse.list
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
